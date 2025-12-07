@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資訊室12月份教育訓練課程報名</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 使用 Inter 字體以獲得更好的現代感 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* 自定義核取方塊的樣式 */
+        .custom-checkbox:checked {
+            background-color: #3b82f6; /* Blue 500 */
+            border-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-6 md:p-10 border border-gray-100">
+        <header class="mb-8 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-gray-800 mb-1">資訊室12月份教育訓練課程報名</h1>
+            <p class="text-lg text-gray-500">上課地點：電腦教室 | 請務必完成報名以利人數統計。</p>
+        </p>
+        </header>
+
+        <!-- 課程說明區塊 -->
+        <section class="mb-8 space-y-6">
+            <h2 class="text-2xl font-semibold text-blue-600 border-b pb-2">課程內容與對象</h2>
+            
+            <!-- 課程 1 -->
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-700">Git 版本控制實戰入門，告別程式碼混亂！</h3>
+                <p class="text-sm text-gray-600 mt-1">講師：江承洋</p>
+                <p class="mt-2 text-sm text-red-500 font-medium">對象：軟體組—每組至少一人參加（請組長委派）</p>
+                <p class="mt-1 text-sm text-gray-700">梯次一：12/16（二）10:00–12:00（單一梯次）</p>
+            </div>
+            
+            <!-- 課程 2 -->
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-700">零程式碼打造專屬網頁系統</h3>
+                <p class="text-sm text-gray-600 mt-1">講師：馮瀞萱</p>
+                <p class="mt-2 text-sm text-red-500 font-medium">對象：軟體組—每位同仁皆須參加，共三梯次（其他組自由參加）</p>
+                <ul class="list-disc list-inside ml-4 text-sm text-gray-700">
+                    <li>梯次二：12/23（二）09:00–10:00</li>
+                    <li>梯次三：12/23（二）10:00–11:00</li>
+                    <li>梯次四：12/23（二）11:00–12:00</li>
+                </ul>
+            </div>
+            
+            <!-- 課程 3 -->
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="text-xl font-bold text-gray-700">Claud Code 與 Vibe Coding：新型開發模式</h3>
+                <p class="text-sm text-gray-600 mt-1">講師：方義順</p>
+                <p class="mt-2 text-sm text-red-500 font-medium">對象：軟體組—每位同仁皆須參加，共三梯次（其他組自由參加）<br>(每組至少要申請一組Claud Code帳號，請各組長委派，可報支)</p>
+                <ul class="list-disc list-inside ml-4 text-sm text-gray-700">
+                    <li>梯次五：12/24（三）09:00–10:00</li>
+                    <li>梯次六：12/24（三）10:00–11:00</li>
+                    <li>梯次七：12/24（三）11:00–12:00</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 報名表單 -->
+        <form id="registrationForm" class="space-y-6">
+            
+            <!-- 組別 -->
+            <div>
+                <label for="group" class="block text-sm font-medium text-gray-700 mb-1">組別 <span class="text-red-500">*</span></label>
+                <select id="group" name="group" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm transition duration-150 ease-in-out">
+                    <option value="">請選擇組別</option>
+                    <option value="門診組">門診組</option>
+                    <option value="醫技組">醫技組</option>
+                    <option value="住院組">住院組</option>
+                    <option value="行政組">行政組</option>
+                    <option value="護理組">護理組</option>
+                    <option value="架構組">架構組</option>
+                    <option value="系統組">系統組</option>
+                </select>
+            </div>
+            
+            <!-- 姓名 -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名 <span class="text-red-500">*</span></label>
+                <input type="text" id="name" name="name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out" placeholder="請輸入姓名">
+            </div>
+
+            <!-- 報名梯次 (可複選) -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">報名梯次 (可複選) <span class="text-red-500">*</span></label>
+                <div id="session-options" class="space-y-3 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <!-- 梯次選項將在這裡動態產生 -->
+                </div>
+            </div>
+
+            <!-- 報名人數統計 (動態顯示) -->
+            <div id="counts-display" class="pt-6 border-t border-gray-200">
+                <h3 class="text-lg font-bold text-gray-700 mb-3 flex justify-between items-center">
+                    目前各梯次已報名人數 (即時)
+                    <span id="capacity-info" class="text-sm font-normal text-red-500"></span>
+                </h3>
+                <div id="loading-counts" class="text-sm text-gray-500">載入中...</div>
+                <ul id="current-counts" class="space-y-1 text-sm">
+                    <!-- 報名人數將在這裡動態顯示 -->
+                </ul>
+            </div>
+
+            <!-- 提交按鈕與狀態訊息 -->
+            <div class="pt-6 border-t mt-8">
+                <button type="submit" id="submit-button" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                    送出報名資料
+                </button>
+                <div id="message-box" role="alert" class="hidden mt-4 p-4 rounded-lg text-sm font-medium"></div>
+            </div>
+        </form>
+
+        <!-- 錯誤提示 Modal (取代 alert()) -->
+        <div id="error-modal" class="fixed inset-0 z-50 bg-gray-900 bg-opacity-75 hidden flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl shadow-2xl p-6 max-w-sm w-full">
+                <h3 class="text-xl font-bold text-red-600 mb-3">錯誤提示</h3>
+                <p id="error-modal-message" class="text-gray-700 mb-4"></p>
+                <button onclick="document.getElementById('error-modal').classList.add('hidden')" class="w-full py-2 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition">確定</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ！！！重要！！！
+        // Apps Script 網頁應用程式網址已更新
+        const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxUCkmgqqJiorfMN9K2w0uE1_lhVlVMPHed7vscw1KSu6ODYKGFXZPGY9tZjcN3zkc/exec'; 
+
+        const registrationForm = document.getElementById('registrationForm');
+        const submitButton = document.getElementById('submit-button');
+        const messageBox = document.getElementById('message-box');
+        const currentCountsList = document.getElementById('current-counts');
+        const loadingCounts = document.getElementById('loading-counts');
+        const sessionOptionsDiv = document.getElementById('session-options');
+        const capacityInfoSpan = document.getElementById('capacity-info');
+        
+        // 課程梯次定義，包含 value (用於提交) 和 label (用於顯示)
+        const sessions = [
+            { value: '梯次一', label: '梯次一：12/16（二）10:00–12:00 (講師：江承洋) - Git' },
+            { value: '梯次二', label: '梯次二：12/23（二）09:00–10:00 (講師：馮瀞萱) - 零程式碼' },
+            { value: '梯次三', label: '梯次三：12/23（二）10:00–11:00 (講師：馮瀞萱) - 零程式碼' },
+            { value: '梯次四', label: '梯次四：12/23（二）11:00–12:00 (講師：馮瀞萱) - 零程式碼' },
+            { value: '梯次五', label: '梯次五：12/24（三）09:00–10:00 (講師：方義順) - Claud Code' },
+            { value: '梯次六', label: '梯次六：12/24（三）10:00–11:00 (講師：方義順) - Claud Code' },
+            { value: '梯次七', label: '梯次七：12/24（三）11:00–12:00 (講師：方義順) - Claud Code' },
+        ];
+
+        /**
+         * 顯示自定義錯誤/警告 Modal
+         * @param {string} message - 要顯示的訊息
+         */
+        function showModal(message) {
+            document.getElementById('error-modal-message').textContent = message;
+            document.getElementById('error-modal').classList.remove('hidden');
+        }
+
+        /**
+         * 顯示操作狀態訊息
+         * @param {string} message - 訊息內容
+         * @param {string} type - 訊息類型 ('success', 'error', or 'loading')
+         */
+        function showMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'bg-yellow-100', 'text-yellow-800');
+            if (type === 'success') {
+                messageBox.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                messageBox.classList.add('bg-red-100', 'text-red-800');
+            } else if (type === 'loading') {
+                messageBox.classList.add('bg-yellow-100', 'text-yellow-800');
+            }
+        }
+
+        /**
+         * 繪製報名梯次選項
+         */
+        function renderSessionOptions() {
+            sessionOptionsDiv.innerHTML = sessions.map((session, index) => `
+                <div class="flex items-start">
+                    <input id="session-${index + 1}" name="sessions" type="checkbox" value="${session.value}" required class="custom-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded mt-1">
+                    <label for="session-${index + 1}" class="ml-3 text-sm font-medium text-gray-700 cursor-pointer">
+                        ${session.label}
+                    </label>
+                </div>
+            `).join('');
+            
+            // 由於複選框至少要選一個，這裡加入一個自定義驗證
+            const checkboxes = document.querySelectorAll('input[name="sessions"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const checked = document.querySelectorAll('input[name="sessions"]:checked').length;
+                    checkboxes.forEach(cb => {
+                        cb.required = checked === 0;
+                    });
+                });
+            });
+        }
+
+        /**
+         * 取得並顯示目前各梯次的報名人數
+         */
+        async function fetchCounts() {
+            loadingCounts.classList.remove('hidden');
+            currentCountsList.innerHTML = ''; // 清空舊的列表
+
+            try {
+                // 發送 GET 請求給 Apps Script
+                const response = await fetch(APP_SCRIPT_URL, { method: 'GET' });
+                const data = await response.json();
+
+                if (data.result === 'success' && data.counts) {
+                    currentCountsList.innerHTML = ''; // 確保清空
+                    const maxCapacity = data.maxCapacity || 12; // 從 Apps Script 取得最大容量，預設為 12
+                    capacityInfoSpan.textContent = `(每梯次限制 ${maxCapacity} 人)`;
+
+
+                    // 將梯次資訊與人數結合顯示
+                    sessions.forEach(session => {
+                        const count = data.counts[session.value] || 0;
+                        const isFull = count >= maxCapacity;
+                        const listItem = document.createElement('li');
+                        listItem.className = 'flex justify-between items-center py-1 border-b last:border-b-0';
+                        listItem.innerHTML = `
+                            <span class="text-gray-600">${session.label.split(' - ')[0]}</span>
+                            <span class="font-semibold ${isFull ? 'text-red-600' : 'text-blue-600'}">
+                                ${count} / ${maxCapacity} 人 ${isFull ? '(已額滿)' : ''}
+                            </span>
+                        `;
+                        currentCountsList.appendChild(listItem);
+
+                        // 禁用已額滿的選項，並調整樣式
+                        const checkbox = document.querySelector(`input[value="${session.value}"]`);
+                        if (checkbox) {
+                            checkbox.disabled = isFull;
+                            checkbox.parentElement.classList.toggle('opacity-50', isFull);
+                            checkbox.parentElement.querySelector('label').classList.toggle('line-through', isFull);
+                            // 如果已額滿，確保它不會被意外選中
+                            if (isFull && checkbox.checked) {
+                                checkbox.checked = false;
+                            }
+                        }
+                    });
+                    
+                } else {
+                    showModal('讀取報名人數失敗: ' + (data.message || '未知錯誤'));
+                }
+
+            } catch (error) {
+                showModal('連線 Apps Script 失敗，請檢查網址或部署狀態。');
+                console.error('Error fetching counts:', error);
+            } finally {
+                loadingCounts.classList.add('hidden');
+            }
+        }
+
+        /**
+         * 處理表單提交
+         * @param {Event} e - 提交事件
+         */
+        async function handleSubmit(e) {
+            e.preventDefault();
+            
+            submitButton.disabled = true;
+            submitButton.textContent = '送出中... 請稍候';
+            showMessage('資料送出中，請勿關閉視窗...', 'loading');
+
+            const group = document.getElementById('group').value;
+            const name = document.getElementById('name').value;
+            // 取得選中的梯次作為陣列
+            const selectedSessions = Array.from(document.querySelectorAll('input[name="sessions"]:checked'))
+                                          .map(cb => cb.value); 
+
+            if (!group || !name || selectedSessions.length === 0) {
+                showModal('請確認「組別」、「姓名」以及至少選擇一項「報名梯次」。');
+                submitButton.disabled = false;
+                submitButton.textContent = '送出報名資料';
+                messageBox.classList.add('hidden'); 
+                return;
+            }
+
+            let successCount = 0;
+            let errorMessages = [];
+
+            // 針對每一個選中的梯次，分別發送一個 POST 請求
+            for (const session of selectedSessions) {
+                const formData = new URLSearchParams();
+                formData.append('group', group);
+                formData.append('name', name);
+                // 這次只傳遞單一梯次名稱，確保 Apps Script 寫入單筆資料
+                formData.append('sessions', session); 
+
+                try {
+                    // 為了處理Apps Script可能發生的節流或暫時性錯誤，這裡使用簡單的重試邏輯
+                    const MAX_RETRIES = 3;
+                    let lastData = null;
+                    let isSubmittedSuccessfully = false;
+
+                    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+                        // 初始延遲 100ms，每次重試延遲加倍
+                        const delay = Math.pow(2, attempt) * 100;
+                        if (attempt > 0) {
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                        }
+
+                        const response = await fetch(APP_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'cors',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: formData.toString()
+                        });
+                        
+                        // 假設 Apps Script 永遠返回 200 OK，所以主要檢查 JSON 內容
+                        const data = await response.json();
+                        lastData = data;
+
+                        if (data.result === 'success') {
+                            successCount++;
+                            isSubmittedSuccessfully = true;
+                            break; // 成功則跳出重試迴圈
+                        } else if (data.code === 'FULL_CAPACITY') {
+                            // 額滿是業務錯誤，不重試
+                            errorMessages.push(`[${session}] 報名失敗：${data.message}`);
+                            break;
+                        } 
+                        // 其他 Apps Script 內部錯誤，可能需要重試
+                    }
+
+                    if (!isSubmittedSuccessfully && lastData) {
+                         // 如果最終還是沒有成功，將最後的錯誤訊息記錄下來
+                         if (lastData.code !== 'FULL_CAPACITY') {
+                             errorMessages.push(`[${session}] 報名失敗：${lastData.message || 'Apps Script 處理錯誤。'}`);
+                         }
+                    } else if (!isSubmittedSuccessfully && !lastData) {
+                         // 如果連 response.json() 都失敗了
+                         errorMessages.push(`[${session}] 連線錯誤或 Apps Script 沒有回應。`);
+                    }
+
+
+                } catch (error) {
+                    // 記錄所有連線/網路錯誤
+                    console.error(`Submission error for ${session}:`, error);
+                    errorMessages.push(`[${session}] 連線或網路錯誤。`);
+                }
+            } // End of session loop
+
+            // 根據結果給予用戶反饋
+            if (successCount === selectedSessions.length) {
+                showMessage(`報名成功！共 ${successCount} 筆資料已寫入。`, 'success');
+                registrationForm.reset(); // 清空表單
+            } else if (successCount > 0) {
+                showMessage(`部分報名成功 (${successCount} 筆)，但有 ${errorMessages.length} 筆失敗。`, 'error');
+                showModal('部分報名失敗！請注意以下訊息：\n' + errorMessages.join('\n'));
+            } else {
+                showMessage('所有報名均失敗。請檢查錯誤提示。', 'error');
+                showModal('所有報名失敗！請注意以下訊息：\n' + errorMessages.join('\n'));
+            }
+
+            // 無論成功或失敗，都需要重新讀取人數，以便更新額滿狀態
+            fetchCounts();
+
+            submitButton.disabled = false;
+            submitButton.textContent = '送出報名資料';
+        }
+
+        // 頁面載入完成後執行
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSessionOptions(); // 繪製梯次選項
+            registrationForm.addEventListener('submit', handleSubmit); // 綁定提交事件
+            fetchCounts(); // 首次載入時取得報名人數
+            
+            // 設置每 30 秒自動更新報名人數
+            setInterval(fetchCounts, 30000); 
+        });
+
+    </script>
+</body>
+</html>
